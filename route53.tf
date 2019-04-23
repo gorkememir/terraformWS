@@ -1,5 +1,6 @@
 resource "aws_route53_zone" "gorkememir" {
   # (resource arguments)
+  "name" = "gorkememir.com"
 }
 
 resource "aws_route53_record" "terraform" {
