@@ -1,7 +1,7 @@
 # Create a new load balancer
 resource "aws_elb" "tfELB" {
   name               = "tfELB"
-  availability_zones = ["us-east-1a", "us-east-1b"]
+  subnets = ["${aws_subnet.tfPub1.id}", "${aws_subnet.tfPub2.id}"]
   security_groups = ["${aws_security_group.tfWebSrvSG.id}"]
 
   listener {
@@ -25,6 +25,6 @@ resource "aws_elb" "tfELB" {
   connection_draining_timeout = 400
 
   tags = {
-    Name = "tfWebServerELB"
+    Name = "tfELB"
   }
 }
