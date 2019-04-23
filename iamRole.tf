@@ -39,7 +39,7 @@ resource "aws_iam_role_policy" "tfS3Policy" {
 	]
       }
     ]
-  }
+}
 EOF
 }
 
