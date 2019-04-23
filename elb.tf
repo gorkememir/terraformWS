@@ -1,7 +1,7 @@
 # Create a new load balancer
 resource "aws_elb" "tfELB" {
   name               = "tfELB"
-  availability_zones = ["${aws_subnet.tfPub1.id}", "${aws_subnet.tfPub2.id}"]
+  availability_zones = ["us-east-1a", "us-east-1b"]
   security_groups = ["${aws_security_group.tfWebSrvSG.id}"]
 
   listener {
