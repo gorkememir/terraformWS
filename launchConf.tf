@@ -19,7 +19,7 @@ data "aws_ami" "amzLx" {
 resource "aws_launch_configuration" "tfWebSrvLC" {
   name = "tfWebSrvLC"
   image_id = "${data.aws_ami.amzLx.id}"
-  instance_type = "t2.nano"
+  instance_type = "t2.micro"
   user_data = "${file("webSrvScript")}"
   security_groups = ["${aws_security_group.tfWebSrvSG.id}"]
   key_name = "btcProj"
