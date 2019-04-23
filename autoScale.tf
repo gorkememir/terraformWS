@@ -2,7 +2,7 @@ resource "aws_autoscaling_group" "tfWebSrvAs" {
   name_prefix               = "tfWebSrvAsGroup"
   max_size                  = 5
   min_size                  = 2
-  health_check_grace_period = 300
+  health_check_grace_period = 500
   health_check_type         = "ELB"
   load_balancers            = ["${aws_elb.tfELB.name}"]
   desired_capacity          = 2
@@ -13,8 +13,8 @@ resource "aws_autoscaling_group" "tfWebSrvAs" {
 
 resource "aws_autoscaling_policy" "tfScPol" {
   name                   = "tfScalingPolicy"
-  scaling_adjustment     = 4
+  scaling_adjustment     = 1
   adjustment_type        = "ChangeInCapacity"
-  cooldown               = 300
+  cooldown               = 500
   autoscaling_group_name = "${aws_autoscaling_group.tfWebSrvAs.name}"
 }

@@ -4,5 +4,5 @@ yum install httpd -y
 aws s3 cp s3://gorkbucket/index.html /var/www/html/
 service httpd start
 chkconfig httpd on
-$HOSTNM='echo hostname'
-echo "This is: $HOSTNM" >> /var/www/html/index.html 
+HOSTNM=$(hostname)
+echo "Hostname for this EC2 Instance is: $HOSTNM" >> /var/www/html/index.html 
